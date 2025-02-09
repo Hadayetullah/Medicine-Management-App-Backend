@@ -1,23 +1,15 @@
 
-import environ
 from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+SECRET_KEY = 'hadayetullah-0t$4p@yxx*i3g607gt1nl9_i%m9nq&v=on5vbx&n!a_jpc&=$z'
 
-# Initialise environment variables
-env = environ.Env()
+DEBUG = True
 
-# Read .env.dev file
-environ.Env.read_env(BASE_DIR / '.env.dev')
-
-SECRET_KEY = env('SECRET_KEY')
-
-DEBUG = bool(env('DEBUG', default=0))
-
-ALLOWED_HOSTS = env('DJANGO_ALLOWED_HOSTS').split(" ")
+ALLOWED_HOSTS = ['*']
 
 # Custom user model
 AUTH_USER_MODEL = 'app_useraccount.User'
@@ -37,12 +29,12 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = 'hadayetullah003@gmail.com'
+EMAIL_HOST_PASSWORD = 'dktj ljwd tvlp gilk'
 
 # JWT settings with blacklist configuration
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
+    "ACCESS_TOKEN_LIFETIME": timedelta(hours=2),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "ROTATE_REFRESH_TOKENS": True,  # Enable token rotation
     "BLACKLIST_AFTER_ROTATION": True,  # Blacklist old refresh tokens after rotation
@@ -60,8 +52,6 @@ REST_FRAMEWORK = {
 }
 
 CORS_ALLOW_ALL_ORIGINS = True
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -120,12 +110,12 @@ ASGI_APPLICATION = 'apibackend.asgi.application'
 # Database settings
 DATABASES = {
     'default': {
-        'ENGINE': env("SQL_ENGINE"),
-        'NAME': env("SQL_DATABASE"),
-        'USER': env("SQL_USER"),
-        'PASSWORD': env("SQL_PASSWORD"),
-        'HOST': env("SQL_HOST"),
-        'PORT': env("SQL_PORT"),
+        'ENGINE': "django.db.backends.postgresql",
+        'NAME': "medicineapp",
+        'USER': "hadayetullah",
+        'PASSWORD': "hadayetullah",
+        'HOST': "medicineapp.cf0ke62qapu2.eu-north-1.rds.amazonaws.com",
+        'PORT': "5432",
     }
 }
 
@@ -172,3 +162,15 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+AWS_ACCESS_KEY_ID = 'AWS_ACCESS_KEY_ID '
+AWS_SECRET_ACCESS_KEY = 'AWS_SECRET_ACCESS_KEY'
+AWS_STORAGE_BUCKET_NAME = 'AWS_STORAGE_BUCKET_NAME'
+AWS_S3_SIGNATURE_NAME = 's3v4',
+AWS_S3_REGION_NAME = 'AWS_S3_REGION_NAME'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL =  None
+AWS_S3_VERITY = True
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
