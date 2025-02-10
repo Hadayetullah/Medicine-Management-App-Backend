@@ -56,7 +56,7 @@ class Medicine(models.Model):
     power = models.FloatField(default=0)
     quantity = models.IntegerField(default=0)
     shelf_no = models.IntegerField(default=0)
-    image = models.ImageField(upload_to='uploads/image', null=True, blank=True)
+    image = models.FileField(upload_to='medicine/', null=True, blank=True)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='createdby')
     updated_by = models.ForeignKey(UpdatedBy, on_delete=models.CASCADE, related_name='updatedby', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -64,11 +64,16 @@ class Medicine(models.Model):
     def __str__(self):
         return self.category.name
     
-    def image_url(self):
-        if self.image:
-            return f'{settings.WEBSITE_URL}{self.image.url}'
-        else:
-            return ''
+    # def image_url(self):
+    #     if self.image:
+    #         return f'{settings.WEBSITE_URL}{self.image.url}'
+    #     else:
+    #         return ''
+
+    # def image_url(self):
+    #     if self.image:
+    #         return self.image.url  # S3 will handle the full URL
+    #     return ''
         
 
 
