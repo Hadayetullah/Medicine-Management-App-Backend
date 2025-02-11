@@ -56,7 +56,7 @@ class Medicine(models.Model):
     power = models.FloatField(default=0)
     quantity = models.IntegerField(default=0)
     shelf_no = models.IntegerField(default=0)
-    image = models.FileField(upload_to='medicine/', null=True, blank=True)
+    image = models.FileField(upload_to='images/', null=True, blank=True)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='createdby')
     updated_by = models.ForeignKey(UpdatedBy, on_delete=models.CASCADE, related_name='updatedby', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)

@@ -158,6 +158,16 @@ STATIC_ROOT = BASE_DIR / 'static'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.s3.S3Storage",
+    },
+
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
+}
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
@@ -168,12 +178,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AWS_ACCESS_KEY_ID = 'AKIA4WJPWE3DHAHACIVS'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'medicinedata'
-AWS_S3_SIGNATURE_NAME = 's3v4'
+# AWS_S3_SIGNATURE_NAME = 's3v4' Instead below line of code
+# AWS_S3_SIGNATURE_VERSION = 's3v4' See if it's working without this line
 AWS_S3_REGION_NAME = 'eu-north-1'
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL =  None
 AWS_S3_VERIFY = True
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
 
