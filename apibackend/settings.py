@@ -15,7 +15,7 @@ ALLOWED_HOSTS = ['*']
 AUTH_USER_MODEL = 'app_useraccount.User'
 
 # Website URL for media
-WEBSITE_URL = 'http://localhost:8000'
+# WEBSITE_URL = 'http://localhost:8000'
 
 # This CHANNEL_LAYERS configuration is only for development
 CHANNEL_LAYERS = {
@@ -185,8 +185,7 @@ AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL =  None
 AWS_S3_VERIFY = True
 
-AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
-# DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
 
 
 
