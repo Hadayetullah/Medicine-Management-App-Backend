@@ -5,7 +5,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'hadayetullah-0t$4p@yxx*i3g607gt1nl9_i%m9nq&v=on5vbx&n!a_jpc&=$z'
+SECRET_KEY = ''
 
 DEBUG = True
 
@@ -29,8 +29,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'hadayetullah003@gmail.com'
-EMAIL_HOST_PASSWORD = 'dktj ljwd tvlp gilk'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 
 # JWT settings with blacklist configuration
 SIMPLE_JWT = {
@@ -177,11 +177,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-AWS_ACCESS_KEY_ID = 'AKIA4WJPWE3DLSZL7LXY'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_ACCESS_KEY_ID = ''
+AWS_SECRET_ACCESS_KEY = ''
 AWS_STORAGE_BUCKET_NAME = 'medicinedata'
 # AWS_S3_SIGNATURE_NAME = 's3v4' Instead below line of code
-# AWS_S3_SIGNATURE_VERSION = 's3v4' See if it's working without this line
+# AWS_S3_SIGNATURE_VERSION = 's3v4' See if it's working
 AWS_S3_REGION_NAME = 'eu-north-1'
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL =  None
