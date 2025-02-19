@@ -5,7 +5,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = ''
+SECRET_KEY = 'hadayetullah-0t$4p@yxx*i3g607gt1nl9_i%m9nq&v=on5vbx&n!a_jpc&=$z'
 
 DEBUG = True
 
@@ -52,6 +52,7 @@ REST_FRAMEWORK = {
 }
 
 CORS_ALLOW_ALL_ORIGINS = True
+CSRF_TRUSTED_ORIGINS = ["http://localhost:3000", "http://localhost:8000", "http://localhost:8001"]
 
 
 # Application definition
