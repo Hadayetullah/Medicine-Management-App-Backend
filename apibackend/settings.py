@@ -115,9 +115,9 @@ DATABASES = {
     'default': {
         'ENGINE': "django.db.backends.postgresql",
         'NAME': "medicineapp",
-        'USER': "hadayetullah",
-        'PASSWORD': "hadayetullah",
-        'HOST': "medicineapp.cf0ke62qapu2.eu-north-1.rds.amazonaws.com",
+        'USER': "",
+        'PASSWORD': "",
+        'HOST': "",
         'PORT': "5432",
     }
 }

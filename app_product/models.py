@@ -56,56 +56,19 @@ class Medicine(models.Model):
     power = models.FloatField(default=0)
     quantity = models.IntegerField(default=0)
     shelf_no = models.IntegerField(default=0)
-    image = models.FileField(upload_to='images/', null=True, blank=True)
+    image = models.ImageField(upload_to='uploads/image', null=True, blank=True)
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='createdby')
     updated_by = models.ForeignKey(UpdatedBy, on_delete=models.CASCADE, related_name='updatedby', null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.name
+        return self.category.name
     
-    # def image_url(self):
-    #     if self.image:
-    #         return f'{settings.WEBSITE_URL}{self.image.url}'
-    #     else:
-    #         return ''
-
-    # def image_url(self):
-    #     if self.image:
-    #         return self.image.url  # S3 will handle the full URL
-    #     return ''
-        
-
-
-class Customer(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    customer_name = models.CharField(max_length=255)
-    customer_age = models.IntegerField()
-    customer_phone = models.CharField(max_length=20, null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.customer_name
-
-
-class EditedBy(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='edit_by')
-    updated_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.user.name
-
-class SellRecord(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, related_name='customer')
-    medicine = models.ManyToManyField(Medicine, related_name='medicines')
-    sold_by = models.ForeignKey(User, related_name='soldby', on_delete=models.CASCADE)
-    edited_by = models.ManyToManyField(EditedBy, related_name='editedby')
-    sold_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return self.customer.customer_name
+    def image_url(self):
+        if self.image:
+            return f'{settings.WEBSITE_URL}{self.image.url}'
+        else:
+            return ''
         
 
 
